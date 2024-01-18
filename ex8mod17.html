@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex8mod17</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .registro-texto {
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#input-nome, #input-email, #input-utilizador, #input-palavra-passe").hide();
+
+            $("img").click(function () {
+                $(this).slideUp("slow", function () {
+                    $(".registro-texto").fadeIn("slow").css("color", "#ff69b4");
+                    $("#input-nome").fadeIn("slow");
+                });
+            });
+
+            $("#input-nome").on("input", function () {
+                var nome = $(this).val();
+                $("#nome").text("Nome: " + nome);
+                $(".registro-texto").fadeOut("slow");
+            });
+
+            $("#input-nome").on("blur keypress", function (event) {
+                if (event.type === "blur" || (event.type === "keypress" && event.which === 13)) {
+                    $("#input-nome").hide("slow", function () {
+                        $("#input-email").fadeIn("slow").css("color", "#ff69b4");
+                    });
+                }
+            });
+
+            $("#input-email").on("input", function () {
+                var email = $(this).val();
+                $("#email").text("Email: " + email);
+                $(".registro-texto").fadeOut("slow");
+            });
+
+            $("#input-email").on("blur keypress", function (event) {
+                if (event.type === "blur" || (event.type === "keypress" && event.which === 13)) {
+                    $("#input-email").hide("slow", function () {
+                        $("#input-utilizador").fadeIn("slow").css("color", "#ff69b4");
+                    });
+                }
+            });
+
+            $("#input-utilizador").on("input", function () {
+                var utilizador = $(this).val();
+                $("#utilizador").text("Utilizador: " + utilizador);
+                $(".registro-texto").fadeOut("slow");
+            });
+
+            $("#input-utilizador").on("blur keypress", function (event) {
+                if (event.type === "blur" || (event.type === "keypress" && event.which === 13)) {
+                    $("#input-utilizador").hide("slow", function () {
+                        $("#input-palavra-passe").fadeIn("slow").css("color", "#ff69b4");
+                    });
+                }
+            });
+
+            $("#input-palavra-passe").on("input", function () {
+                var palavraPasse = $(this).val();
+                $("#palavra-passe").text("Palavra-Passe: " + palavraPasse);
+                $(".registro-texto").fadeOut("slow");
+            });
+
+            $("#input-palavra-passe").on("blur keypress", function (event) {
+                if (event.type === "blur" || (event.type === "keypress" && event.which === 13)) {
+                    $("#input-palavra-passe, #palavra-passe, #input-utilizador, #utilizador, #input-email, #email, #input-nome, #nome").hide("slow", function () {
+                        $("img").slideDown(1000);
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Página de registo</h1>
+    <img src="imagens/8_Start-Here.png" alt="Imagem" width="250" height="200">
+    <p id="nome" class="registro-texto">Nome: </p>
+    <input type="text" id="input-nome">
+
+    <p id="email" class="registro-texto">Email: </p>
+    <input type="text" id="input-email">
+
+    <p id="utilizador" class="registro-texto">Utilizador: </p>
+    <input type="text" id="input-utilizador">
+
+    <p id="palavra-passe" class="registro-texto">Palavra-Passe: </p>
+    <input type="password" id="input-palavra-passe">
+</body>
+</html>

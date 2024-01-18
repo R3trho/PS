@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex7Mod17</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#carros-usados-text").mouseenter(function () {
+                $(".carros-usados-images").show();
+                $(".carros-novos-images").hide();
+            });
+            $("#carros-novos-text").mouseenter(function () {
+                $(".carros-novos-images").show();
+                $(".carros-usados-images").hide();
+            });
+            $("#mostrar-todos").dblclick(function () {
+                var confirma = confirm("Mostrar todos os carros");
+                if (confirma) {
+                    $(".carros-usados-images, .carros-novos-images").show();
+                }
+            });
+        });
+    </script>
+    <style>
+        .carros-usados-images, .carros-novos-images {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>STAND Sobre Rodas</h1>
+    <p id="carros-usados-text">carros usados</p>
+    <p id="carros-novos-text">carros novos</p>
+    <div class="carros-usados-images">
+        <img src="imagem_carro_usado_1.jpg" alt="Carro Usado 1">
+        <img src="imagem_carro_usado_2.jpg" alt="Carro Usado 2">
+        
+    </div>
+    <div class="carros-novos-images">
+        <img src="imagem_carro_novo_1.jpg" alt="Carro Novo 1">
+        <img src="imagem_carro_novo_2.jpg" alt="Carro Novo 2">
+    </div>
+    <button id="mostrar-todos">Duplo clique aqui!!!</button>
+
+    
+</body>
+</html>
